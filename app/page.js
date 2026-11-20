@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Counter from "./components/Counter";
+import Typewriter from "./components/Typewriter";
+import ApiStatus from "./components/ApiStatus";
 
 export default function Home() {
   const skills = ["HTML", "CSS", "JavaScript", "Git", "Docker"];
@@ -20,9 +22,14 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <div className="max-w-xl">
-        <span className="rounded-full">NEXT.JS + DOCKER PORTFOLIO</span>
+        <div className="top-badges">
+          <span className="rounded-full">NEXT.JS + DOCKER PORTFOLIO</span>
+          <ApiStatus />
+        </div>
 
         <h1 className="bg-clip-text">สวัสดี! ฉันชื่อ เชษฐา เสริมแก้ว</h1>
+
+        <Typewriter />
 
         <p className="leading-relaxed">
           เว็บไซต์นี้สร้างด้วย <span className="text-white">Next.js</span>{" "}

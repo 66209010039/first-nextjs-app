@@ -2,6 +2,8 @@ import Link from "next/link";
 import Counter from "./components/Counter";
 import Typewriter from "./components/Typewriter";
 import ApiStatus from "./components/ApiStatus";
+import SpotlightCard from "./components/SpotlightCard";
+import MiniTerminal from "./components/MiniTerminal";
 
 export default function Home() {
   const skills = ["HTML", "CSS", "JavaScript", "Git", "Docker"];
@@ -21,7 +23,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <div className="max-w-xl">
+      <SpotlightCard>
         <div className="top-badges">
           <span className="rounded-full">NEXT.JS + DOCKER PORTFOLIO</span>
           <ApiStatus />
@@ -46,6 +48,8 @@ export default function Home() {
             ))}
           </div>
         </div>
+
+        <MiniTerminal />
 
         <div className="projects-section">
           <h2>ผลงานที่ผ่านมา (PROJECTS)</h2>
@@ -76,7 +80,7 @@ export default function Home() {
             ติดต่อฉัน
           </Link>
         </div>
-      </div>
+      </SpotlightCard>
     </main>
   );
 }
