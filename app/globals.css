@@ -1,26 +1,187 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #ffffff;
+  background: #020617;
+}
+
+/* พื้นหลังหลัก */
+main.min-h-screen {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #020617 0%, #0f172a 50%, #1e1b4b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* กรอบการ์ดตรงกลาง */
+.max-w-xl {
+  max-width: 580px;
+  width: 100%;
+  background: rgba(30, 41, 59, 0.85);
+  border: 1px solid rgba(71, 85, 105, 0.7);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65);
+}
+
+/* ป้ายแท็กด้านบน */
+.rounded-full {
+  display: inline-block;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #67e8f9;
+  background: rgba(8, 51, 68, 0.85);
+  border: 1px solid rgba(14, 116, 144, 0.6);
+  border-radius: 9999px;
+  margin-bottom: 16px;
+}
+
+/* หัวข้อหลักไล่สี */
+h1.bg-clip-text {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 12px;
+  background: linear-gradient(to right, #22d3ee, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ข้อความอธิบาย */
+.leading-relaxed {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.text-white {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+span.text-cyan-400 {
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+/* หัวข้อและป้ายทักษะ */
+h2 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bg-indigo-500\/15 {
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  background: rgba(99, 102, 241, 0.18);
+  color: #a5b4fc;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  border-radius: 8px;
+}
+
+/* กล่องปุ่มกดนับเลข */
+.mt-6 {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(51, 65, 85, 0.8);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.text-slate-300 {
+  color: #cbd5e1;
+  font-size: 17px;
+}
+
+.text-2xl {
+  font-weight: 700;
+  font-size: 24px;
+  color: #22d3ee;
+  margin: 0 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background: linear-gradient(to right, #06b6d4, #2563eb);
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(6, 182, 212, 0.25);
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* แถบลิงก์ด้านล่าง */
+.mt-8 {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(51, 65, 85, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+a.text-cyan-400 {
+  color: #22d3ee;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a.text-cyan-400:hover {
+  color: #67e8f9;
+}
+
+.bg-slate-700\/70 {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  background: rgba(51, 65, 85, 0.8);
+  color: #e2e8f0;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.bg-slate-700\/70:hover {
+  background: #475569;
+}
+
+.mb-8 {
+  margin-bottom: 28px;
 }
