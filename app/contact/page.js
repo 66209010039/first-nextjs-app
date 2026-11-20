@@ -1,40 +1,79 @@
-"use client";
-import { useState } from "react";
 import Link from "next/link";
+import Counter from "./components/Counter";
+import Typewriter from "./components/Typewriter";
+import ApiStatus from "./components/ApiStatus";
 
-export default function Contact() {
-  const [copied, setCopied] = useState(false);
-  const email = "69319010010bncc.ac.th";
+export default function Home() {
+  const skills = ["HTML", "CSS", "JavaScript", "Git", "Docker"];
 
-  const handleCopy = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard.writeText(email);
-    }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
+  const projects = [
+    {
+      title: "Next.js Docker Portfolio",
+      desc: "เว็บแนะนำตัวและแสดงผลงานที่รันอยู่ภายใน Docker Container",
+      tags: ["Next.js", "Docker", "CSS"],
+    },
+    {
+      title: "Git & GitHub Workflow",
+      desc: "ระบบจัดการเวอร์ชันโค้ด แตก Branch และแก้ไข Merge Conflict",
+      tags: ["Git", "GitHub", "VS Code"],
+    },
+  ];
 
   return (
     <main className="min-h-screen">
       <div className="max-w-xl">
-        <h1 className="bg-clip-text">ติดต่อฉัน</h1>
-        <p className="leading-relaxed">
-          สามารถติดต่อสอบถามหรือพูดคุยแลกเปลี่ยนความรู้ด้านการเขียนโค้ดได้ทางอีเมลด้านล่างครับ
-        </p>
-
-        <div className="email-box">
-          <div>
-            <span className="email-label">อีเมลติดต่อ</span>
-            <p className="email-text">{email}</p>
-          </div>
-          <button onClick={handleCopy} className={copied ? "btn-copied" : ""}>
-            {copied ? "คัดลอกแล้ว! ✓" : "คัดลอกอีเมล"}
-          </button>
+        <div className="top-badges">
+          <span className="rounded-full">NEXT.JS + DOCKER PORTFOLIO</span>
+          <ApiStatus />
         </div>
 
+        <h1 className="bg-clip-text">สวัสดี! ฉันชื่อ เชษฐา เสริมแก้ว</h1>
+
+        <Typewriter />
+
+        <p className="leading-relaxed">
+          เว็บไซต์นี้สร้างด้วย <span className="text-white">Next.js</span>{" "}
+          และรันอยู่ภายใน <span className="text-cyan-400">Docker Container</span>
+        </p>
+
+        <div>
+          <h2>ทักษะที่กำลังเรียน</h2>
+          <div className="flex-wrap">
+            {skills.map((skill) => (
+              <span key={skill} className="bg-indigo-500/15">
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="projects-section">
+          <h2>ผลงานที่ผ่านมา (PROJECTS)</h2>
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <div key={project.title} className="project-card">
+                <h3 className="project-title">{project.title}</h3>
+                <p className="project-desc">{project.desc}</p>
+                <div className="project-tags">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="project-tag">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <Counter />
+
         <div className="mt-8">
-          <Link href="/" className="bg-slate-700/70">
-            ← กลับหน้าแรก
+          <Link href="/about" className="text-cyan-400">
+            ไปหน้าเกี่ยวกับฉัน →
+          </Link>
+          <Link href="/contact" className="bg-slate-700/70">
+            ติดต่อฉัน
           </Link>
         </div>
       </div>
